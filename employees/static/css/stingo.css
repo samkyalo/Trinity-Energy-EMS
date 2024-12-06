@@ -1,0 +1,26 @@
+
+table,th,td{
+    border: 2px double rgb(8, 8, 8);
+    border-radius: 8px;
+}
+.card-header{
+    color:#1399bb; 
+    text-align: center;
+    font-size:large;
+    font-weight: bolder;     
+}
+footer span{    color:white;
+    background: red;
+}
+a:hover{
+    color:red;
+    text-transform: uppercase;
+    font-size: larger;
+}
+body{
+    background-image: url("8.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+

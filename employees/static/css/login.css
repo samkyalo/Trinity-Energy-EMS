@@ -1,0 +1,40 @@
+.login-form{
+    width: 50%;
+    border:1px solid limegreen ;
+    border-radius: 9px;
+    margin: auto;
+    margin-top: 7%;
+    background-color: #2a4460;
+    text-align: center;
+
+
+}
+.login-form h3{
+    color:deepskyblue;
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 2%;
+
+}
+.login-form label{
+    font-size: large;
+    color:black;
+    width: 50%;
+    margin: auto;
+    color: white;
+    text-transform: uppercase;
+
+}
+.login-form input{
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    border: 5px;
+}
+button a{
+    color: white;
+    text-decoration: none;
+}
+button a:hover{
+    color:white;
+}

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Employee Management System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"></link>
+    <link href="{% static 'css/stingo.css' %}" rel="stylesheet"></link>
+  
+</head>
+<body class="d-flex flex-column min-vh-100">
+{% comment %} navigation bar {% endcomment %}
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}"><i class="fa-solid fa-users fa-lg"></i> Trinity ems</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'index' %}"><i class="fa-solid fa-list fa-lg"></i>  All Employees
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'add' %}"> <i class="fa-solid fa-user-plus fa-lg"></i>  Add Employee</a>
+        </li>
+       <li class="nav-item">
+          <a class="nav-link active" href="{% url 'home' %}"><i>Home</i></a>
+        </li>
+    </div>
+  </div>
+</nav>
+    
+{% comment %} kabody hapo ivo  {% endcomment %}
+<div class="container-fluid">
+    {% block body %}
+    {% endblock %}
+</div>
+
+{% comment %} KA FOOTER HPO INVO {% endcomment %}
+<footer class="mt-auto mb-4">
+  <div class="text-center">
+    <span>
+      Copyright &copy; <script>document.write(new Date().getFullYear())</script><i><strong>.  Samuel Kyalo</strong></i> 
+    </span>
+  </div>  
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"> </script>
+</body>
+</html>

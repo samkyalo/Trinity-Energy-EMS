@@ -1,0 +1,128 @@
+{% extends "employees/base.html" %}
+{% block body %}
+ 
+<marquee>
+    <h3 class="m-4">Trinity Energy Magumu service station All Employees</h3>
+</marquee>
+<div class="row">
+  <div class="col-12">
+    {% if employees %}
+    <div class="card bg-light ms-4 me-4 mb-4" >
+      <div class="card-header">
+        <i class="fa-solid fa-list "></i> Employee Records
+      </div>
+      <div class="card-body">
+        {% comment %} kudisplay kwa table {% endcomment %}
+        <p class="card-text">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>              
+                  <th scope="col">Employee Number</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Department</th>
+                  <th scope="col">Salary</th>
+                  <th colspan="2" scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for employee in employees %}  
+                <tr>
+                  <td>{{ employee.employee_number }}</td>
+                  <td>{{ employee.first_name }}</td>
+                  <td>{{ employee.last_name }}</td>
+                  <td>{{ employee.email }}</td>
+                  <td>{{ employee.department }}</td>
+                  <td>{{ employee.salary }}</td>
+
+                  <td>
+                    {% comment %} izo tubutton {% endcomment %}
+                    <button type="button" class="btn btn-success me-1" href="{% url 'view_employee' employee.id %}" 
+                    data-bs-toggle="modal" data-bs-target="#myModal{{employee.id}}">
+                    <i class="fa-solid fa-circle-info"></i>
+                    </button>
+
+                    <a class="btn btn-warning me-1" href="{% url 'edit' employee.id %}">
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete{{employee.id}}">
+                      <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                  <!------modal  view employee-->
+                  <div class="modal" id="myModal{{employee.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">
+                            Employee:  {{ employee.first_name }} {{ employee.last_name }}
+                          </h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <ul class="list-unstyled">
+                            <li><strong>Employee Number:</strong>{{ employee.employee_number }}</li>
+                            <li><strong>First Name:</strong>{{ employee.first_name }}</li>
+                            <li><strong>Last Name:</strong>{{ employee.last_name }}</li>
+                            <li><strong>Email:</strong>{{ employee.email }}</li>
+                            <li><strong>Department:</strong>{{ employee.department }}</li>
+                            <li><strong>Salary:</strong>{{ employee.salary }}</li>
+
+                          </ul>
+                        </div>
+                        <div class="modal-footer">                            
+                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 
+                  </td>
+                
+                  <!----- delete ------>
+                  <!------modal delete employee-->
+                  <div class="modal" id="delete{{employee.id}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">
+                            Employee:  {{ employee.first_name }} {{ employee.last_name }}
+                          </h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure you want to delete</p>
+                        </div>
+                        <div class="modal-footer"> 
+                        <form action="{% url 'delete' employee.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-primary" value="Submit">
+
+                        </form>                           
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </td>
+                </tr>
+                {% endfor %}                
+              </tbody>
+            </table>              
+          </div>
+        </p>
+      </div>
+    </div>
+    {% else %}
+    {% comment %} if no employee is present {% endcomment %}
+    
+    {% endif %}
+
+  </div>
+</div>
+{% endblock %}

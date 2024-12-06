@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trinnity Energy Magumu E.M.S</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Trinity Magumu</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!------ako ka card---->
+<div class="card-group">
+<div class="card text-white bg-dark mb-3"  style="max-width: 30rem;">
+  <div class="card-header">TRINITY ENERGY MAGUMU</div>
+  <div class="card-body">
+      <marquee><h4 class="card-title">Driving Africa Forward</h4></marquee>
+    <p class="card-text">Excellent Customer Service<br>Sisi hatukosi ngata!!</p>
+  </div>
+</div>
+</div>
+<footer>
+    <div class="text-center">
+    <span style="align-items: end">
+      Copyright &copy; <script>document.write(new Date().getFullYear())</script><i><strong>Samuel Kyalo</strong></i>
+    </span>
+    </div>
+</footer>
+<link rel="stylesheet" href="{% static 'bootstrap/js/bootstrap.min.js' %}">
+</body>
+</html>
